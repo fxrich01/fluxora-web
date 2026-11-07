@@ -1,38 +1,43 @@
 import { useState } from 'react'
-import { ChevronDown, Clock, Mail, MapPin, Phone, Shield, Sparkles, WhatsApp } from './icons.jsx'
+import { ChevronDown, Clock, House, Mail, MapPin, Phone, Shield, Sparkles, WhatsApp } from './icons.jsx'
 import { templatesData } from './ModelWebsite.jsx'
 import './ContactSection.css'
 
 const faqs = [
   {
-    q: 'Apakah harga sudah termasuk nama domain .com dan cloud hosting?',
-    a: 'Ya, sudah lengkap! Seluruh paket sudah termasuk gratis nama domain (.com / .id) selama 1 tahun, cloud hosting performa tinggi dengan SSL (https) aman, dan konfigurasi teknis hingga website aktif.',
+    q: 'Apakah semua model bisa digunakan untuk Rumah, Ruko, Apartemen, Kavling, Tanah, dan Gudang?',
+    a: 'Ya, 100% bisa! Semua model memiliki spesifikasi lengkap yang sama. Anda bebas memasukkan berbagai kategori properti: rumah tinggal, ruko bisnis, apartemen, tanah kavling, pergudangan, hingga villa dengan foto, denah, spesifikasi, dan harga masing-masing.',
   },
   {
-    q: 'Apakah saya bisa menambah, mengedit, atau menghapus listing properti sendiri?',
-    a: 'Tentu saja! Kami menyediakan panduan video singkat dan mudah dipahami sehingga Anda bisa menambahkan listing baru, mengganti harga properti, atau menandai properti yang sudah TERJUAL / SOLD.',
+    q: 'Apa perbedaan mendasar antara Paket Solo Agen dan Kantor Agency?',
+    a: 'Paket Solo Agen (Rp 1.500.000/tahun) ditujukan untuk 1 agen personal dengan 1 nomor WhatsApp langsung dan branding pribadi. Sedangkan Paket Kantor Agency (Rp 2.250.000/tahun) dikhususkan untuk kantor broker/agensi yang memiliki banyak agen marketing; setiap listing dapat mencantumkan foto & kontak WhatsApp agen penanggung jawab masing-masing, serta dilengkapi direktori tim kantor.',
   },
   {
-    q: 'Apakah ada biaya langganan bulanan?',
-    a: 'Tidak ada biaya bulanan sama sekali! Anda hanya membayar biaya pembuatan satu kali di awal. Untuk tahun kedua dan seterusnya, Anda hanya cukup memperpanjang sewa domain dan hosting tahunan dengan biaya sangat terjangkau (sekitar Rp 350.000 / tahun).',
+    q: 'Berapa biaya langganan dan apa saja yang sudah termasuk?',
+    a: 'Biaya bersifat tahunan: Rp 1.500.000/tahun untuk Solo Agen dan Rp 2.250.000/tahun untuk Kantor Agency. Biaya ini sudah ALL-IN, mencakup gratis sewa nama domain (.com/.id), cloud hosting kecepatan tinggi, SSL keamanan, perawatan server, dan bantuan teknis selama 1 tahun penuh.',
   },
   {
-    q: 'Berapa lama proses pembuatan sampai website saya online?',
-    a: 'Rata-rata proses pengerjaan membutuhkan waktu 24 hingga maksimal 48 jam kerja setelah data listing dan informasi agen kami terima lengkap.',
+    q: 'Apakah saya bisa menambah atau mengubah listing sendiri?',
+    a: 'Sangat bisa! Kami memberikan panduan video tutorial praktis yang mudah diikuti. Anda bisa menambah listing baru, mengedit harga diskon, mengganti foto, atau menandai unit yang sudah TERJUAL (SOLD) kapan saja.',
   },
   {
-    q: 'Bagaimana jika saya agen independen dan belum punya logo resmi kantor?',
-    a: 'Tidak masalah! Tim kami siap membantu membuatkan logo teks inisial agen yang bersih, elegan, dan profesional tanpa tambahan biaya.',
+    q: 'Berapa lama proses pembuatan hingga website aktif?',
+    a: 'Website Anda akan selesai dan online dalam waktu 24 hingga 48 jam kerja setelah data informasi agen/kantor dan listing awal kami terima.',
   },
 ]
 
-export default function ContactSection({ selectedTemplate, onClearSelectedTemplate }) {
+export default function ContactSection({ selectedTemplate }) {
+  const defaultModel = selectedTemplate 
+    ? `[${selectedTemplate.tier}] ${selectedTemplate.name} — ${selectedTemplate.price}${selectedTemplate.pricePeriod}`
+    : `[Solo Agen] Estate Prime (Rent H&U) — Rp 1.500.000 / tahun`
+
   const [formData, setFormData] = useState({
     name: '',
     agency: '',
     whatsapp: '',
     city: '',
-    model: selectedTemplate ? selectedTemplate.name : templatesData[0].name,
+    tier: 'Solo Agen (Rp 1.500.000/tahun)',
+    model: defaultModel,
     notes: '',
   })
 
@@ -50,16 +55,16 @@ export default function ContactSection({ selectedTemplate, onClearSelectedTempla
       return
     }
 
-    const message = `Halo Admin WebProperti,%0A%0ASaya ingin memesan / konsultasi pembuatan Website Agen Properti:%0A%0A` +
-      `*Nama Agen:* ${encodeURIComponent(formData.name)}%0A` +
-      `*Kantor / Broker:* ${encodeURIComponent(formData.agency || '-')}%0A` +
+    const message = `Halo Admin WebProperti,%0A%0ASaya ingin memesan / konsultasi Website Properti:%0A%0A` +
+      `*Nama Pemesan:* ${encodeURIComponent(formData.name)}%0A` +
       `*No. WhatsApp:* ${encodeURIComponent(formData.whatsapp)}%0A` +
-      `*Area Fokus Listing:* ${encodeURIComponent(formData.city || '-')}%0A` +
-      `*Pilihan Model Website:* ${encodeURIComponent(formData.model)}%0A` +
-      `*Catatan Tambahan:* ${encodeURIComponent(formData.notes || '-')}%0A%0A` +
-      `Mohon info langkah selanjutnya dan estimasi pengerjaannya. Terima kasih!`;
+      `*Kantor Broker / Agency:* ${encodeURIComponent(formData.agency || '-')}%0A` +
+      `*Kota / Area Fokus:* ${encodeURIComponent(formData.city || '-')}%0A` +
+      `*Kategori Paket:* ${encodeURIComponent(formData.tier)}%0A` +
+      `*Model Pilihan:* ${encodeURIComponent(formData.model)}%0A` +
+      `*Catatan / Usulan Domain:* ${encodeURIComponent(formData.notes || '-')}%0A%0A` +
+      `Mohon panduan pendaftaran dan nomor rekening pembayarannya. Terima kasih!`;
 
-    // Direct WhatsApp dispatch (default number can be configured, using standard admin number)
     const waNumber = '6281280008899'
     window.open(`https://wa.me/${waNumber}?text=${message}`, '_blank')
     setSubmitted(true)
@@ -74,11 +79,11 @@ export default function ContactSection({ selectedTemplate, onClearSelectedTempla
             <span>Formulir Pemesanan & Konsultasi</span>
           </div>
           <h2 className="contact__title">
-            Mulai Buat Website Properti Anda<br />
-            <span>Tingkatkan Kredibilitas & Closing</span>
+            Pemesanan Website Properti<br />
+            <span>Pilih Paket Solo Agen atau Kantor Agency</span>
           </h2>
           <p className="contact__desc">
-            Isi formulir di bawah ini untuk pemesanan model website atau hubungi tim konsultan kami secara langsung via chat WhatsApp.
+            Seluruh model mendukung semua kategori properti (Rumah, Ruko, Apartemen, Tanah, Gudang). Pilih paket yang sesuai kebutuhan Anda dan tim kami akan segera menghubungi via WhatsApp.
           </p>
         </div>
 
@@ -92,7 +97,7 @@ export default function ContactSection({ selectedTemplate, onClearSelectedTempla
 
             <form onSubmit={handleSendWhatsApp} className="contact__form">
               <div className="form-group">
-                <label htmlFor="name">Nama Lengkap Agen *</label>
+                <label htmlFor="name">Nama Lengkap Pemesan *</label>
                 <input
                   id="name"
                   name="name"
@@ -123,7 +128,7 @@ export default function ContactSection({ selectedTemplate, onClearSelectedTempla
                     id="agency"
                     name="agency"
                     type="text"
-                    placeholder="Ray White / ERA / Independent"
+                    placeholder="Ray White / ERA / Brighton / Independent"
                     value={formData.agency}
                     onChange={handleChange}
                   />
@@ -132,41 +137,67 @@ export default function ContactSection({ selectedTemplate, onClearSelectedTempla
 
               <div className="form-row">
                 <div className="form-group">
-                  <label htmlFor="city">Area Fokus Listing</label>
-                  <input
-                    id="city"
-                    name="city"
-                    type="text"
-                    placeholder="Contoh: BSD City, Gading Serpong, Bali"
-                    value={formData.city}
+                  <label htmlFor="tier">Pilihan Kategori Paket</label>
+                  <select
+                    id="tier"
+                    name="tier"
+                    value={formData.tier}
                     onChange={handleChange}
-                  />
+                  >
+                    <option value="Solo Agen (Rp 1.500.000/tahun)">
+                      Solo Agen — Rp 1.500.000 / tahun
+                    </option>
+                    <option value="Kantor Agency (Rp 2.250.000/tahun)">
+                      Kantor Agency — Rp 2.250.000 / tahun
+                    </option>
+                  </select>
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="model">Model Template Pilihan</label>
+                  <label htmlFor="model">Model Template</label>
                   <select
                     id="model"
                     name="model"
                     value={formData.model}
                     onChange={handleChange}
                   >
-                    {templatesData.map((t) => (
-                      <option key={t.id} value={t.name}>
-                        {t.name} ({t.price})
-                      </option>
-                    ))}
+                    <optgroup label="Model Solo Agen (Rp 1.500.000 / thn)">
+                      {templatesData.filter((t) => t.tier === 'Solo Agen').map((t) => (
+                        <option key={t.id} value={`[Solo Agen] ${t.name} — ${t.price}/thn`}>
+                          {t.name} (Solo Agen)
+                        </option>
+                      ))}
+                    </optgroup>
+                    <optgroup label="Model Kantor Agency (Rp 2.250.000 / thn)">
+                      {templatesData.filter((t) => t.tier === 'Kantor Agency').map((t) => (
+                        <option key={t.id} value={`[Kantor Agency] ${t.name} — ${t.price}/thn`}>
+                          {t.name} (Kantor Agency)
+                        </option>
+                      ))}
+                    </optgroup>
                   </select>
                 </div>
               </div>
 
               <div className="form-group">
-                <label htmlFor="notes">Catatan atau Usulan Nama Domain (.com / .id)</label>
+                <label htmlFor="city">Area Fokus Listing Properti</label>
+                <input
+                  id="city"
+                  name="city"
+                  type="text"
+                  placeholder="Contoh: BSD City, Gading Serpong, Jakarta Selatan, Bali"
+                  value={formData.city}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="notes">Catatan & Usulan Nama Domain (.com / .id)</label>
                 <textarea
                   id="notes"
                   name="notes"
                   rows="3"
-                  placeholder="Contoh: Saya ingin domain budisanto-properti.com dan fokus listing rumah secondary mewah."
+                  placeholder="Contoh: Saya ingin domain budiproperti.com, spesialisasi rumah & kavling BSD."
                   value={formData.notes}
                   onChange={handleChange}
                 />
@@ -178,7 +209,7 @@ export default function ContactSection({ selectedTemplate, onClearSelectedTempla
               </button>
 
               <p className="contact__privacy-note">
-                🔒 Data Anda aman dan hanya digunakan untuk keperluan pembuatan website serta komunikasi langsung dengan Anda.
+                🔒 Data Anda aman dan hanya digunakan untuk proses setup website serta komunikasi resmi via WhatsApp.
               </p>
             </form>
           </div>
@@ -186,36 +217,36 @@ export default function ContactSection({ selectedTemplate, onClearSelectedTempla
           {/* Info & FAQ Side */}
           <div className="contact__info-col">
             <div className="contact__direct-card">
-              <h4>Konsultasi Cepat dengan Tim Ahli</h4>
+              <h4>Perbandingan Singkat Paket</h4>
               <p>
-                Punya pertanyaan seputar kustomisasi fitur, integrasi CRM, atau ingin melihat demo langsung di smartphone Anda?
+                Semua paket sudah termasuk domain, hosting, kalkulator KPR, dan support segala jenis properti:
               </p>
               <div className="contact__channels">
                 <div className="contact__chan-item">
                   <div className="contact__chan-icon">
-                    <WhatsApp />
+                    👤
                   </div>
                   <div>
-                    <strong>Chat WhatsApp Admin</strong>
-                    <span>Respon cepat dalam hitungan menit</span>
+                    <strong>Solo Agen — Rp 1.500.000 / tahun</strong>
+                    <span>Khusus 1 agen, nomor WA langsung, branding personal mandiri</span>
                   </div>
                 </div>
                 <div className="contact__chan-item">
                   <div className="contact__chan-icon">
-                    <Clock />
+                    🏢
                   </div>
                   <div>
-                    <strong>Waktu Pengerjaan Kilat</strong>
-                    <span>Online dalam 24 - 48 jam</span>
+                    <strong>Kantor Agency — Rp 2.250.000 / tahun</strong>
+                    <span>Khusus kantor agensi, listing multi-agen, direktori tim marketing</span>
                   </div>
                 </div>
                 <div className="contact__chan-item">
                   <div className="contact__chan-icon">
-                    <Shield />
+                    <House />
                   </div>
                   <div>
-                    <strong>Garansi & Panduan Lengkap</strong>
-                    <span>Termasuk panduan kelola listing mandiri</span>
+                    <strong>Support Semua Jenis Properti</strong>
+                    <span>Rumah, Ruko, Apartemen, Kavling, Tanah, Gudang, dll</span>
                   </div>
                 </div>
               </div>

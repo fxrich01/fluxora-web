@@ -1,29 +1,29 @@
-import { ArrowRight, Check, Clock, Shield, WhatsApp } from './icons.jsx'
+import { ArrowRight, Check, Clock, House, Shield, WhatsApp } from './icons.jsx'
 import './CaraBeli.css'
 
 const steps = [
   {
     num: '01',
-    title: 'Pilih Model Template',
-    desc: 'Tentukan model website dari katalog kami yang paling sesuai dengan spesialisasi listing Anda (Villa, Cluster, Rumah Mewah, atau Profil Agen).',
-    detail: 'Bisa live preview langsung dari ponsel Anda sebelum memutuskan.',
+    title: 'Pilih Paket & Model',
+    desc: 'Tentukan paket kebutuhan Anda: Solo Agen (Rp 1,5 Jt/thn) atau Kantor Agency (Rp 2,25 Jt/thn). Seluruh model bisa untuk listing Rumah, Ruko, Apartemen, Tanah, Kavling, maupun Gudang.',
+    detail: 'Bisa live preview langsung dari smartphone Anda sebelum memesan.',
   },
   {
     num: '02',
-    title: 'Kirim Data & Listing Anda',
-    desc: 'Kirimkan data dasar: Nama Anda, foto profil, logo kantor broker (ERA, Ray White, Brighton, dll), nomor WhatsApp, serta listing pertama.',
-    detail: 'Bisa dikirim dengan mudah via chat WhatsApp admin kami.',
+    title: 'Kirim Data Profil & Listing',
+    desc: 'Kirimkan data dasar: Nama Anda/Kantor, foto profil/tim, logo broker (Ray White, ERA, Brighton, dll), nomor WhatsApp, serta listing properti pertama Anda.',
+    detail: 'Bisa dikirim secara mudah dan praktis via chat WhatsApp admin.',
   },
   {
     num: '03',
-    title: 'Setup Domain & Integrasi',
-    desc: 'Tim kami mengonfigurasi nama domain pilihan (.com / .id), cloud hosting super cepat, SSL keamanan, SEO Google, dan tombol survey WA.',
-    detail: 'Dikerjakan langsung oleh tim web developer berpengalaman.',
+    title: 'Setup Domain & Sistem Kilat',
+    desc: 'Tim kami mengonfigurasi nama domain (.com / .id), cloud hosting performa tinggi, SSL keamanan, integrasi WhatsApp CRM, dan kalkulator KPR.',
+    detail: 'Dikerjakan langsung secara profesional oleh tim developer.',
   },
   {
     num: '04',
     title: 'Website Online & Siap Closing',
-    desc: 'Dalam 24-48 jam website Anda siap digunakan. Pasang link di bio Instagram, TikTok, Google Maps, dan bagikan ke calon buyer!',
+    desc: 'Dalam 24-48 jam website Anda langsung live di internet. Pasang link di bio Instagram, TikTok, status WhatsApp, dan kartu nama Anda!',
     detail: 'Siap menerima leads prospek pembeli terverifikasi setiap hari.',
   },
 ]
@@ -39,10 +39,10 @@ export default function CaraBeli({ onOpenOrder }) {
           </div>
           <h2 className="steps__title">
             Cara Mudah Memiliki Website<br />
-            <span>Agen Properti Profesional</span>
+            <span>Agen & Kantor Agency Properti</span>
           </h2>
           <p className="steps__desc">
-            Anda tidak perlu repot coding atau paham teknis. Cukup pilih modelnya, tim kami yang akan mengerjakan semuanya hingga website Anda aktif dan siap dipakai promosi.
+            Anda tidak perlu repot coding atau paham teknis. Cukup pilih paketnya (Solo Agen Rp 1,5 Jt/thn atau Kantor Agency Rp 2,25 Jt/thn), tim kami yang akan mengerjakan semuanya hingga online.
           </p>
         </div>
 
@@ -65,9 +65,9 @@ export default function CaraBeli({ onOpenOrder }) {
             <Shield style={{ width: 28, height: 28 }} />
           </div>
           <div className="steps__guarantee-text">
-            <h4>Garansi Pelayanan & Bimbingan Penggunaan</h4>
+            <h4>Garansi Pelayanan & Bimbingan Kelola Listing</h4>
             <p>
-              Setiap pemesanan website sudah termasuk <strong>Panduan Video Menambah Listing Baru</strong> secara mandiri dan dukungan konsultasi teknis via WhatsApp.
+              Setiap pemesanan website sudah termasuk <strong>Panduan Video Menambah & Mengedit Listing Baru</strong> secara mandiri dan dukungan konsultasi teknis via WhatsApp.
             </p>
           </div>
           <button 

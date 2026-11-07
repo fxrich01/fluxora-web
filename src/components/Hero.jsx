@@ -3,8 +3,8 @@ import { ArrowRight, Globe, partners } from './icons.jsx'
 import './Hero.css'
 
 const stats = [
-  { value: '350+', label: 'Agen Properti Bergabung' },
-  { value: '24 Jam', label: 'Website Langsung Online' },
+  { value: 'Rp 1,5 Jt', label: 'Solo Agen / tahun' },
+  { value: 'Rp 2,25 Jt', label: 'Kantor Agency / tahun' },
 ]
 
 const bars = [34, 52, 44, 70, 88]
@@ -51,7 +51,7 @@ export default function Hero() {
         <div className="hero__lead">
           <p className="hero__note">
             <Globe className="hero__note-icon" />
-            <span>Platform Pembuatan Website Khusus<br />Agen & Broker Properti Indonesia</span>
+            <span>Platform Pembuatan Website Khusus<br />Solo Agen & Kantor Agency Properti</span>
           </p>
 
           <h1 className="hero__title">
@@ -61,7 +61,7 @@ export default function Hero() {
           </h1>
 
           <p className="hero__sub">
-            Tingkatkan kredibilitas personal branding Anda, pamerkan listing rumah & apartemen secara elegan, dan terima prospek pembeli terverifikasi langsung ke WhatsApp Anda 24/7.
+            Pamerkan listing rumah, ruko, apartemen, kavling, tanah, hingga gudang secara profesional. Tersedia paket khusus <strong>Solo Agen (Rp 1,5 Jt/thn)</strong> dan <strong>Kantor Agency (Rp 2,25 Jt/thn)</strong> terintegrasi WhatsApp CRM.
           </p>
 
           <div className="hero__cta">
@@ -78,8 +78,8 @@ export default function Hero() {
                 <i style={{ '--a': '#d8434b', '--b': '#ff8a8f' }} />
               </div>
               <span className="hero__proof-text">
-                <strong>350+ Agen Properti Aktif</strong>
-                Terintegrasi Chat WhatsApp
+                <strong>Bisa Semua Kategori Properti</strong>
+                Rumah, Ruko, Tanah & Gudang
               </span>
             </div>
           </div>
@@ -105,9 +105,9 @@ export default function Hero() {
             </div>
             <p className="ghost__kpi"><strong>+68%</strong>Konversi Leads<br />Prospek Survey</p>
           </div>
-          <h2 className="ghost__title">Lebih Kredibel & Cepat Closing</h2>
+          <h2 className="ghost__title">Fleksibel & Siap Listing</h2>
           <p className="ghost__copy">
-            Calon buyer lebih yakin bertransaksi properti bernilai miliaran ketika Anda memiliki website berdomain profesional sendiri.
+            Seluruh model mendukung rumah, ruko, apartemen, tanah, kavling, hingga gudang dengan kalkulator KPR dan tombol survey WhatsApp otomatis.
           </p>
         </aside>
       </div>

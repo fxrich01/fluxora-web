@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Check, Close, ExternalLink, Shield, WhatsApp } from './icons.jsx'
+import { Check, Close, ExternalLink, House, Shield, WhatsApp } from './icons.jsx'
 import { templatesData } from './ModelWebsite.jsx'
 import './OrderModal.css'
 
@@ -11,6 +11,9 @@ export default function OrderModal({ template, onClose }) {
   const [agency, setAgency] = useState('')
   const [city, setCity] = useState('')
   const [domainWish, setDomainWish] = useState('')
+  const [selectedModelId, setSelectedModelId] = useState(currentTemplate.id)
+
+  const activeTemplate = templatesData.find((t) => t.id === selectedModelId) || currentTemplate
 
   const handleOrder = (e) => {
     e.preventDefault()
@@ -19,16 +22,17 @@ export default function OrderModal({ template, onClose }) {
       return
     }
 
-    const message = `Halo Admin WebProperti,%0A%0ASaya ingin memesan Website Properti Model:*%0A` +
-      `📌 *Model:* ${encodeURIComponent(currentTemplate.name)}%0A` +
-      `💰 *Harga:* ${encodeURIComponent(currentTemplate.price)}%0A%0A` +
+    const message = `Halo Admin WebProperti,%0A%0ASaya ingin memesan Website Properti:%0A%0A` +
+      `📌 *Paket:* ${encodeURIComponent(activeTemplate.tier)} (${encodeURIComponent(activeTemplate.price)} ${encodeURIComponent(activeTemplate.pricePeriod)})%0A` +
+      `🎨 *Pilihan Model:* ${encodeURIComponent(activeTemplate.name)}%0A` +
+      `🏡 *Spesifikasi:* Semua jenis properti (Rumah, Ruko, Apartemen, Tanah/Kavling, Gudang)%0A%0A` +
       `*Data Pemesan:*%0A` +
       `- Nama: ${encodeURIComponent(name)}%0A` +
       `- WhatsApp: ${encodeURIComponent(whatsapp)}%0A` +
-      `- Broker/Kantor: ${encodeURIComponent(agency || '-')}%0A` +
-      `- Area: ${encodeURIComponent(city || '-')}%0A` +
+      `- Broker / Kantor Agency: ${encodeURIComponent(agency || '-')}%0A` +
+      `- Kota / Area: ${encodeURIComponent(city || '-')}%0A` +
       `- Usulan Domain: ${encodeURIComponent(domainWish || '-')}%0A%0A` +
-      `Mohon info rekening pembayaran dan kelengkapan data listingnya. Terima kasih!`;
+      `Mohon info rekening pembayaran dan format pengiriman data listing. Terima kasih!`;
 
     const waNumber = '6281280008899'
     window.open(`https://wa.me/${waNumber}?text=${message}`, '_blank')
@@ -43,34 +47,61 @@ export default function OrderModal({ template, onClose }) {
         </button>
 
         <div className="order-modal__header">
-          <span className="order-modal__badge">Formulir Pemesanan Langsung</span>
-          <h2 className="order-modal__title">Konfirmasi Model Website</h2>
+          <span className="order-modal__badge">Formulir Pemesanan Resmi</span>
+          <h2 className="order-modal__title">Pemesanan Website Properti</h2>
         </div>
 
         <div className="order-modal__summary">
-          <img src={currentTemplate.thumbnail} alt={currentTemplate.name} className="order-modal__thumb" />
+          <img src={activeTemplate.thumbnail} alt={activeTemplate.name} className="order-modal__thumb" />
           <div className="order-modal__info">
-            <span className="order-modal__cat">{currentTemplate.category}</span>
-            <h3 className="order-modal__name">{currentTemplate.name}</h3>
-            <div className="order-modal__price-row">
-              <span className="order-modal__price">{currentTemplate.price}</span>
-              <span className="order-modal__note">Sekali bayar • Sudah include Domain & Hosting</span>
+            <div className="order-modal__tier-row">
+              <span className={`order-modal__tier-tag ${activeTemplate.tier === 'Kantor Agency' ? 'tag--agency' : 'tag--solo'}`}>
+                {activeTemplate.tier}
+              </span>
+              <span className="order-modal__cat">{activeTemplate.target}</span>
             </div>
-            <a 
-              href={currentTemplate.demoUrl} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="order-modal__demo-link"
-            >
-              <ExternalLink style={{ width: 14, height: 14 }} />
-              <span>Lihat Demo Live ({currentTemplate.demoUrl})</span>
-            </a>
+            <h3 className="order-modal__name">{activeTemplate.name}</h3>
+            <div className="order-modal__price-row">
+              <span className="order-modal__price">{activeTemplate.price}</span>
+              <span className="order-modal__period">{activeTemplate.pricePeriod}</span>
+            </div>
+            <span className="order-modal__note">
+              Sudah termasuk Nama Domain .com + Cloud Hosting selama 1 Tahun
+            </span>
+            <div className="order-modal__spec-note">
+              <House style={{ width: 14, height: 14, color: '#ff8a1f' }} />
+              <span>Bisa listing Rumah, Ruko, Apartemen, Kavling, Tanah, Gudang, dll.</span>
+            </div>
           </div>
         </div>
 
         <form onSubmit={handleOrder} className="order-modal__form">
           <div className="form-group">
-            <label>Nama Lengkap Agen *</label>
+            <label>Model Template & Paket yang Dipilih</label>
+            <select
+              value={selectedModelId}
+              onChange={(e) => setSelectedModelId(e.target.value)}
+              className="order-modal__select"
+            >
+              <optgroup label="Paket Solo Agen (Rp 1.500.000 / tahun)">
+                {templatesData.filter((t) => t.tier === 'Solo Agen').map((t) => (
+                  <option key={t.id} value={t.id}>
+                    [Solo Agen] {t.name} — Rp 1.500.000 / thn
+                  </option>
+                ))}
+              </optgroup>
+              <optgroup label="Paket Kantor Agency (Rp 2.250.000 / tahun)">
+                {templatesData.filter((t) => t.tier === 'Kantor Agency').map((t) => (
+                  <option key={t.id} value={t.id}>
+                    [Kantor Agency] {t.name} — Rp 2.250.000 / thn
+                  </option>
+                ))}
+              </optgroup>
+            </select>
+          </div>
+
+          <div className="form-group">
+            <label>Nama Lengkap Pemesan *</label>
             <input
               type="text"
               required
@@ -130,7 +161,7 @@ export default function OrderModal({ template, onClose }) {
 
           <div className="order-modal__trust">
             <Shield style={{ width: 16, height: 16, color: '#ff8a1f' }} />
-            <span>Garansi pengerjaan 24 - 48 jam & bimbingan penggunaan</span>
+            <span>Garansi pengerjaan 24 - 48 jam & bimbingan kelola listing mandiri</span>
           </div>
         </form>
       </div>

@@ -1,4 +1,4 @@
-import { Globe, Logo, Mail, Phone, WhatsApp } from './icons.jsx'
+import { Globe, House, Logo, Mail, Phone, WhatsApp } from './icons.jsx'
 import './Footer.css'
 
 export default function Footer() {
@@ -12,11 +12,11 @@ export default function Footer() {
               <span>WebProperti</span>
             </a>
             <p className="footer__tagline">
-              Solusi digitalisasi dan pembuatan website eksklusif khusus Agen & Broker Properti Indonesia. Desain mewah, loading kilat, dan terintegrasi WhatsApp CRM.
+              Solusi pembuatan website eksklusif khusus Solo Agen (Rp 1,5 Jt/thn) dan Kantor Agency (Rp 2,25 Jt/thn). Mendukung listing Rumah, Ruko, Apartemen, Kavling, Tanah, hingga Gudang.
             </p>
             <div className="footer__socials">
               <a 
-                href="https://wa.me/6281280008899?text=Halo%20WebProperti" 
+                href="https://wa.me/6281280008899?text=Halo%20Admin%20WebProperti" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="footer__social-btn"
@@ -53,35 +53,35 @@ export default function Footer() {
           </div>
 
           <div className="footer__models-col">
-            <h4 className="footer__heading">Model Populer</h4>
+            <h4 className="footer__heading">Kategori Paket</h4>
             <ul>
-              <li><a href="#model-website">Rent H&U (Luxury Villa)</a></li>
-              <li><a href="#model-website">Sovereign Estate (Rumah Mewah)</a></li>
-              <li><a href="#model-website">Grand Cluster (Perumahan Baru)</a></li>
-              <li><a href="#model-website">Agent Pro (Personal Branding)</a></li>
-              <li><a href="#model-website">Urban Living (Apartemen)</a></li>
+              <li><a href="#model-website">Paket Solo Agen (Rp 1,5 Jt/thn)</a></li>
+              <li><a href="#model-website">Paket Kantor Agency (Rp 2,25 Jt/thn)</a></li>
+              <li><a href="#model-website">Listing Rumah & Ruko</a></li>
+              <li><a href="#model-website">Listing Apartemen & Penthouse</a></li>
+              <li><a href="#model-website">Listing Tanah, Kavling & Gudang</a></li>
             </ul>
           </div>
 
           <div className="footer__contact-col">
-            <h4 className="footer__heading">Hubungi Tim Kami</h4>
+            <h4 className="footer__heading">Konsultasi Pemesanan</h4>
             <p className="footer__contact-info">
-              Konsultasi gratis mengenai nama domain, pemilihan template, dan integrasi listing properti Anda.
+              Tanyakan ketersediaan nama domain pilihan Anda atau konsultasikan kebutuhan website kantor agensi Anda dengan tim kami.
             </p>
             <a 
-              href="https://wa.me/6281280008899?text=Halo%20Admin%20WebProperti%2C%20saya%20ingin%20konsultasi%20website%20agen%20properti" 
+              href="https://wa.me/6281280008899?text=Halo%20Admin%20WebProperti%2C%20saya%20ingin%20tanya%20paket%20Solo%20Agen%20dan%20Kantor%20Agency" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="btn btn--flame footer__wa-cta"
             >
               <WhatsApp style={{ width: 17, height: 17 }} />
-              <span>Chat WhatsApp Kami</span>
+              <span>Chat WhatsApp Admin</span>
             </a>
           </div>
         </div>
 
         <div className="footer__bottom">
-          <p>© {new Date().getFullYear()} WebProperti. Seluruh Hak Cipta Dilindungi. Dibuat khusus untuk kemajuan Agen Properti Indonesia.</p>
+          <p>© {new Date().getFullYear()} WebProperti. Seluruh Hak Cipta Dilindungi. Platform Website No. 1 Agen & Broker Properti Indonesia.</p>
           <div className="footer__bottom-links">
             <a href="#home">Syarat & Ketentuan</a>
             <span>•</span>
