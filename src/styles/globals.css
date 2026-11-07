@@ -18,7 +18,7 @@
   --hair-soft: rgba(255, 255, 255, 0.08);
 
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-  --gutter: clamp(18px, 2.6vw, 44px);
+  --gutter: clamp(14px, 3.2vw, 40px);
 
   --font-display: 'Inter Tight', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
@@ -34,9 +34,14 @@
 html { 
   -webkit-text-size-adjust: 100%; 
   scroll-behavior: smooth;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
+  width: 100%;
+  max-width: 100%;
   min-height: 100svh;
   background: var(--ground-deep);
   color: var(--ink);
@@ -46,6 +51,7 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
+  position: relative;
 }
 
 img, svg, video { display: block; max-width: 100%; }

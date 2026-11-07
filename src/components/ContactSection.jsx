@@ -65,7 +65,7 @@ export default function ContactSection({ selectedTemplate }) {
       `*Catatan / Usulan Domain:* ${encodeURIComponent(formData.notes || '-')}%0A%0A` +
       `Mohon panduan pendaftaran dan nomor rekening pembayarannya. Terima kasih!`;
 
-    const waNumber = '6281280008899'
+    const waNumber = '628119191175'
     window.open(`https://wa.me/${waNumber}?text=${message}`, '_blank')
     setSubmitted(true)
   }
@@ -217,11 +217,37 @@ export default function ContactSection({ selectedTemplate }) {
           {/* Info & FAQ Side */}
           <div className="contact__info-col">
             <div className="contact__direct-card">
-              <h4>Perbandingan Singkat Paket</h4>
+              <h4>Kontak & Perbandingan Paket</h4>
               <p>
                 Semua paket sudah termasuk domain, hosting, kalkulator KPR, dan support segala jenis properti:
               </p>
               <div className="contact__channels">
+                <a 
+                  href="https://wa.me/628119191175?text=Halo%20Admin%20WebProperti" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="contact__chan-item contact__chan-link"
+                >
+                  <div className="contact__chan-icon">
+                    <WhatsApp />
+                  </div>
+                  <div>
+                    <strong>WhatsApp: 0811-9191-175</strong>
+                    <span>Konsultasi Cepat (Klik untuk Chat)</span>
+                  </div>
+                </a>
+                <a 
+                  href="mailto:info@webplasa.com" 
+                  className="contact__chan-item contact__chan-link"
+                >
+                  <div className="contact__chan-icon">
+                    <Mail />
+                  </div>
+                  <div>
+                    <strong>Email: info@webplasa.com</strong>
+                    <span>Kirim Penawaran & Data Listing</span>
+                  </div>
+                </a>
                 <div className="contact__chan-item">
                   <div className="contact__chan-icon">
                     👤

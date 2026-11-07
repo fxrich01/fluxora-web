@@ -1,13 +1,20 @@
 .models-section {
   position: relative;
-  padding: 100px var(--gutter) 80px;
+  padding: clamp(60px, 8vw, 100px) var(--gutter) clamp(50px, 6vw, 80px);
   background: radial-gradient(circle at 50% 0%, rgba(95, 27, 4, 0.35) 0%, rgba(18, 4, 0, 0.95) 70%);
   border-top: 1px solid var(--hair-soft);
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 .models__container {
+  width: 100%;
   max-width: 1240px;
   margin: 0 auto;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .models__header {
@@ -196,13 +203,16 @@
 /* Grid */
 .models__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 28px;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+  gap: clamp(16px, 3vw, 28px);
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   .models__grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 

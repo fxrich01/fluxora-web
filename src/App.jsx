@@ -50,7 +50,7 @@ export default function App() {
       {/* Floating WhatsApp Quick Action Button */}
       <aside className="floating-wa" aria-label="Bantuan WhatsApp">
         <a
-          href="https://wa.me/6281280008899?text=Halo%20Admin%20WebProperti%2C%20saya%20ingin%20tanya%20seputar%20pembuatan%20website%20agen%20properti"
+          href="https://wa.me/628119191175?text=Halo%20Admin%20WebProperti%2C%20saya%20ingin%20tanya%20seputar%20pembuatan%20website%20agen%20properti"
           target="_blank"
           rel="noopener noreferrer"
           className="floating-wa__btn"

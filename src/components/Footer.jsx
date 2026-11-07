@@ -16,25 +16,28 @@ export default function Footer() {
             </p>
             <div className="footer__socials">
               <a 
-                href="https://wa.me/6281280008899?text=Halo%20Admin%20WebProperti" 
+                href="https://wa.me/628119191175?text=Halo%20Admin%20WebProperti" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="footer__social-btn"
-                aria-label="WhatsApp"
+                aria-label="WhatsApp 0811-9191-175"
+                title="WhatsApp 0811-9191-175"
               >
                 <WhatsApp />
               </a>
               <a 
-                href="#kontak" 
+                href="tel:08119191175" 
                 className="footer__social-btn"
-                aria-label="Hubungi Kami"
+                aria-label="Telepon 0811-9191-175"
+                title="0811-9191-175"
               >
                 <Phone />
               </a>
               <a 
-                href="mailto:halo@webproperti.id" 
+                href="mailto:info@webplasa.com" 
                 className="footer__social-btn"
-                aria-label="Email"
+                aria-label="Email info@webplasa.com"
+                title="info@webplasa.com"
               >
                 <Mail />
               </a>
@@ -69,13 +72,13 @@ export default function Footer() {
               Tanyakan ketersediaan nama domain pilihan Anda atau konsultasikan kebutuhan website kantor agensi Anda dengan tim kami.
             </p>
             <a 
-              href="https://wa.me/6281280008899?text=Halo%20Admin%20WebProperti%2C%20saya%20ingin%20tanya%20paket%20Solo%20Agen%20dan%20Kantor%20Agency" 
+              href="https://wa.me/628119191175?text=Halo%20Admin%20WebProperti%2C%20saya%20ingin%20tanya%20paket%20Solo%20Agen%20dan%20Kantor%20Agency" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="btn btn--flame footer__wa-cta"
             >
               <WhatsApp style={{ width: 17, height: 17 }} />
-              <span>Chat WhatsApp Admin</span>
+              <span>WhatsApp: 0811-9191-175</span>
             </a>
           </div>
         </div>

@@ -34,7 +34,7 @@ export default function OrderModal({ template, onClose }) {
       `- Usulan Domain: ${encodeURIComponent(domainWish || '-')}%0A%0A` +
       `Mohon info rekening pembayaran dan format pengiriman data listing. Terima kasih!`;
 
-    const waNumber = '6281280008899'
+    const waNumber = '628119191175'
     window.open(`https://wa.me/${waNumber}?text=${message}`, '_blank')
     onClose()
   }
