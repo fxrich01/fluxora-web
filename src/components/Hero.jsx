@@ -3,8 +3,8 @@ import { ArrowRight, Globe, partners } from './icons.jsx'
 import './Hero.css'
 
 const stats = [
-  { value: '150+', label: 'Projects delivered' },
-  { value: '98%', label: 'Client satisfaction' },
+  { value: '350+', label: 'Agen Properti Bergabung' },
+  { value: '24 Jam', label: 'Website Langsung Online' },
 ]
 
 const bars = [34, 52, 44, 70, 88]
@@ -17,7 +17,6 @@ export default function Hero() {
     const video = videoRef.current
     if (!video) return
 
-    // Some browsers block autoplay until the element is explicitly nudged.
     const play = video.play()
     if (play?.catch) play.catch(() => {})
 
@@ -28,7 +27,7 @@ export default function Hero() {
   }, [])
 
   return (
-    <section className="hero">
+    <section className="hero" id="home">
       <div className="hero__media">
         <video
           ref={videoRef}
@@ -52,23 +51,22 @@ export default function Hero() {
         <div className="hero__lead">
           <p className="hero__note">
             <Globe className="hero__note-icon" />
-            <span>Hub support peoples from<br />all over the world</span>
+            <span>Platform Pembuatan Website Khusus<br />Agen & Broker Properti Indonesia</span>
           </p>
 
           <h1 className="hero__title">
-            Technology<br />
-            Crafted for All<br />
-            Not <em>Machines</em>
+            Website Eksklusif<br />
+            Khusus Agen Properti<br />
+            Bukan Sekadar <em>Brosur</em>
           </h1>
 
           <p className="hero__sub">
-            We create clear, intuitive, and accessible digital
-            experiences shaped by real human behavior.
+            Tingkatkan kredibilitas personal branding Anda, pamerkan listing rumah & apartemen secara elegan, dan terima prospek pembeli terverifikasi langsung ke WhatsApp Anda 24/7.
           </p>
 
           <div className="hero__cta">
-            <a className="btn btn--flame hero__go" href="#main">
-              Get started
+            <a className="btn btn--flame hero__go" href="#model-website">
+              Pilih Model Website
               <span className="hero__go-dot" aria-hidden="true"><ArrowRight /></span>
             </a>
 
@@ -80,8 +78,8 @@ export default function Hero() {
                 <i style={{ '--a': '#d8434b', '--b': '#ff8a8f' }} />
               </div>
               <span className="hero__proof-text">
-                <strong>650+ Happy Clients</strong>
-                Live Support
+                <strong>350+ Agen Properti Aktif</strong>
+                Terintegrasi Chat WhatsApp
               </span>
             </div>
           </div>
@@ -105,20 +103,19 @@ export default function Hero() {
                 <span key={i} style={{ height: `${h}%` }} />
               ))}
             </div>
-            <p className="ghost__kpi"><strong>+42%</strong>Experience<br />Performance</p>
+            <p className="ghost__kpi"><strong>+68%</strong>Konversi Leads<br />Prospek Survey</p>
           </div>
-          <h2 className="ghost__title">Measure Real Impact</h2>
+          <h2 className="ghost__title">Lebih Kredibel & Cepat Closing</h2>
           <p className="ghost__copy">
-            We track user response through meaningful metrics and
-            refine every detail until the experience feels effortless.
+            Calon buyer lebih yakin bertransaksi properti bernilai miliaran ketika Anda memiliki website berdomain profesional sendiri.
           </p>
         </aside>
       </div>
 
       <div className="hero__foot">
-        <span className="hero__watermark" aria-hidden="true">AIM</span>
+        <span className="hero__watermark" aria-hidden="true">ESTATE</span>
         <div className="hero__partners">
-          <span className="hero__partners-label">Our Partners</span>
+          <span className="hero__partners-label">Dipercaya Agen dari Jaringan</span>
           <ul>
             {partners.map((partner) => (
               <li key={partner.name}>

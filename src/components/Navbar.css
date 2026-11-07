@@ -1,24 +1,51 @@
 /* Reference: logo hard left, links in a centred outlined capsule where each item
    carries its own soft chip, one white pill CTA hard right. Bar is transparent. */
 .nav {
-  position: absolute;
+  position: fixed;
   inset: 0 0 auto;
-  z-index: 20;
+  z-index: 50;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
   padding: clamp(14px, 1.7vw, 22px) var(--gutter);
+  transition: background-color 0.3s var(--ease-out), backdrop-filter 0.3s var(--ease-out), padding 0.3s var(--ease-out);
+}
+
+.nav--scrolled {
+  background: rgba(18, 4, 0, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--hair-soft);
+  padding-top: 12px;
+  padding-bottom: 12px;
 }
 
 .nav__brand {
   display: inline-flex;
   align-items: center;
-  gap: 9px;
+  gap: 10px;
   font-family: var(--font-display);
   font-size: clamp(18px, 1.5vw, 22px);
   font-weight: 600;
   letter-spacing: -0.025em;
+}
+
+.nav__brand-text {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav__brand-badge {
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  background: linear-gradient(96deg, var(--flame), var(--flame-lit));
+  color: #fff;
+  padding: 2px 7px;
+  border-radius: 999px;
 }
 
 .nav__logo { width: 1.3em; height: 1.3em; }
@@ -27,8 +54,8 @@
   display: none;
   padding: 5px;
   border: 1px solid var(--hair);
-  border-radius: 12px;
-  background: rgba(28, 10, 2, 0.34);
+  border-radius: 999px;
+  background: rgba(28, 10, 2, 0.55);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
 }
@@ -36,7 +63,7 @@
 .nav__pill ul {
   display: flex;
   align-items: center;
-  gap: 3px;
+  gap: 4px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -46,21 +73,43 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 8px 13px;
-  border-radius: 8px;
+  padding: 7px 15px;
+  border-radius: 999px;
   font-size: 13.5px;
-  font-weight: 450;
+  font-weight: 480;
   color: rgba(255, 255, 255, 0.82);
-  background: rgba(255, 255, 255, 0.05);
-  transition: background-color 0.3s var(--ease-out), color 0.3s var(--ease-out);
+  background: transparent;
+  transition: background-color 0.25s var(--ease-out), color 0.25s var(--ease-out);
 }
-.nav__pill a:hover { background: rgba(255, 255, 255, 0.14); color: #fff; }
+.nav__pill a:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
 
 .nav__chev { width: 10px; height: 10px; opacity: 0.7; }
 
-.nav__actions { display: flex; align-items: center; gap: 10px; }
+.nav__actions { 
+  display: flex; 
+  align-items: center; 
+  gap: 10px; 
+}
 
-.nav__cta { font-size: 13.5px; font-weight: 550; }
+.nav__cta { 
+  font-size: 13.5px; 
+  font-weight: 550; 
+}
+
+.nav__cta-order {
+  display: none;
+  font-size: 13.5px;
+  padding: 0.6em 1.2em;
+}
+
+@media (min-width: 1080px) {
+  .nav__cta-order {
+    display: inline-flex;
+  }
+}
 
 .nav__burger {
   display: grid;
@@ -77,28 +126,32 @@
 .nav__sheet {
   position: fixed;
   inset: 68px 12px auto;
-  padding: 18px;
+  padding: 20px;
   border: 1px solid var(--hair);
-  border-radius: 18px;
-  background: rgba(18, 5, 0, 0.94);
-  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  background: rgba(18, 5, 0, 0.96);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+  z-index: 60;
 }
-.nav__sheet ul { margin: 0 0 14px; padding: 0; list-style: none; display: grid; gap: 2px; }
+.nav__sheet ul { margin: 0 0 16px; padding: 0; list-style: none; display: grid; gap: 4px; }
 .nav__sheet a {
   display: block;
-  padding: 12px 10px;
-  border-radius: 10px;
+  padding: 12px 14px;
+  border-radius: 12px;
   font-size: 16px;
-  color: rgba(255, 255, 255, 0.86);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
 }
-.nav__sheet a:hover { background: rgba(255, 255, 255, 0.07); }
+.nav__sheet a:hover { background: rgba(255, 255, 255, 0.08); color: #fff; }
+.nav__sheet-actions {
+  padding-top: 8px;
+  border-top: 1px solid var(--hair-soft);
+}
 .nav__sheet-cta { width: 100%; justify-content: center; padding: 0.85em 1.4em; }
 
 @media (min-width: 940px) {
   .nav__pill { display: block; }
   .nav__burger { display: none; }
-}
-
-@media (max-width: 480px) {
-  .nav__cta { display: none; }
 }
